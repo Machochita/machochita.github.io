@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio de Michi: automatización, desarrollo de software y herramientas para mejorar la productividad." />
+    <title>Michi — Automatización y software</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink:#182033; --muted:#5e687d; --paper:#fffdfd; --lavender:#c9e7ff; --purple:#ec356e; --mint:#d9f6ff; --yellow:#ffe496; --coral:#ff8fb5; --line:#f2d9e4; --pink:#ffb8d2; --blue:#a8dcff; }
+      * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:linear-gradient(145deg,#ffe0ec 0%,#fffdfd 48%,#dff3ff 100%); font-family:Outfit,system-ui,sans-serif; line-height:1.5; }
+      body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.35; background-image:radial-gradient(#ec356e 1px,transparent 1px); background-size:26px 26px; mask-image:linear-gradient(to bottom,black,transparent 65%); }
+      .wrap { width:min(1120px,calc(100% - 40px)); margin:auto; position:relative; }
+      header { display:flex; justify-content:space-between; align-items:center; padding:22px 0; } .brand { display:flex; gap:10px; align-items:center; font-weight:800; font-size:1.2rem; text-decoration:none; color:var(--ink); } .brand-mark { display:grid; place-items:center; width:38px; height:38px; border-radius:14px; background:var(--lavender); border:2px solid var(--ink); font-size:21px; box-shadow:3px 3px 0 var(--ink); }
+      nav { display:flex; gap:22px; } nav a { color:var(--muted); text-decoration:none; font-weight:600; } nav a:hover { color:var(--purple); }
+      .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:54px; min-height:620px; align-items:center; padding:58px 0 76px; } .eyebrow { display:inline-flex; gap:8px; align-items:center; padding:7px 12px; border-radius:99px; background:var(--mint); border:1px solid #6dbedb; font:500 .8rem "DM Mono",monospace; } h1 { max-width:750px; margin:18px 0; font-size:clamp(3.1rem,8vw,6.3rem); line-height:.92; letter-spacing:-.07em; } h1 span { color:var(--purple); } .hero p { max-width:620px; color:var(--muted); font-size:1.16rem; } .actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; } .button { display:inline-flex; align-items:center; gap:9px; padding:13px 19px; border:2px solid var(--ink); border-radius:14px; text-decoration:none; color:var(--ink); font-weight:700; box-shadow:4px 4px 0 var(--ink); transition:.18s; cursor:pointer; } .button:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); } .button.primary { background:var(--purple); color:white; }
+      .dragon-card { position:relative; min-height:370px; padding:22px; overflow:hidden; border:2px solid var(--ink); border-radius:30px; background:linear-gradient(145deg,var(--pink),var(--blue)); box-shadow:8px 8px 0 var(--ink); cursor:pointer; } .hero-scene { width:100%; height:100%; min-height:324px; object-fit:cover; border-radius:17px; display:block; image-rendering:auto; transition:transform .25s ease,filter .25s; }.dragon-card:hover .hero-scene { transform:scale(1.035); filter:saturate(1.12); }.dragon-card:active .hero-scene { transform:scale(.98); }.sticker { position:absolute; padding:6px 10px; background:var(--yellow); border:2px solid var(--ink); border-radius:10px; font:500 .7rem "DM Mono",monospace; transform:rotate(-8deg); } .sticker.top { top:22px; right:20px; } .sticker.bottom { bottom:22px; left:18px; background:var(--mint); transform:rotate(5deg); } .secret-note { position:absolute; right:19px; bottom:19px; max-width:180px; padding:7px 9px; border-radius:9px; background:rgba(24,32,51,.83); color:white; text-align:center; font:500 .68rem "DM Mono",monospace; opacity:0; transform:translateY(8px); transition:.2s; }.secret-note.show { opacity:1; transform:none; }
+      section { padding:82px 0; } .section-label { margin:0 0 8px; color:var(--purple); font:500 .82rem "DM Mono",monospace; text-transform:uppercase; letter-spacing:.08em; } h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1; letter-spacing:-.05em; margin:0 0 16px; } .intro { max-width:650px; color:var(--muted); font-size:1.08rem; }.projects { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:34px; }.project { display:flex; flex-direction:column; min-height:315px; padding:24px; border:2px solid var(--ink); border-radius:22px; background:var(--paper); box-shadow:5px 5px 0 var(--ink); }.project:nth-child(2) { background:#fff4dc; }.project:nth-child(3){ background:#eafff4; }.project-icon { display:grid; place-items:center; width:54px; height:54px; background:var(--lavender); border-radius:15px; border:2px solid var(--ink); font-size:27px; }.project h3 { margin:21px 0 8px; font-size:1.35rem; }.project p { margin:0; color:var(--muted); }.tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:20px; }.tag { padding:4px 8px; border-radius:99px; background:#fff; border:1px solid var(--line); font:500 .72rem "DM Mono",monospace; }
+      .about { display:grid; grid-template-columns:1fr 1fr; gap:22px; }.about-card { padding:30px; border:2px solid var(--ink); border-radius:23px; background:var(--paper); box-shadow:5px 5px 0 var(--ink); }.about-card p { color:var(--muted); font-size:1.05rem; }.traits { display:grid; gap:10px; margin-top:22px; }.trait { display:flex; gap:10px; align-items:flex-start; }.trait b { display:block; }.trait span { color:var(--muted); font-size:.94rem; }.dot { display:block; flex:none; margin-top:7px; width:10px; height:10px; border:2px solid var(--ink); border-radius:50%; background:var(--coral); }
+      .game-shell { position:relative; margin-top:34px; padding:26px; border:2px solid var(--ink); border-radius:25px; background:#192038; color:white; box-shadow:6px 6px 0 var(--ink); }.game-top { display:flex; justify-content:space-between; gap:18px; align-items:center; margin-bottom:16px; }.game-top h3 { margin:0; font-size:1.45rem; }.game-top p { margin:2px 0 0; color:#c7cee2; }.game-button { border:2px solid white; border-radius:11px; padding:9px 12px; background:var(--mint); color:var(--ink); cursor:pointer; font-weight:800; }.game-canvas { display:block; width:100%; max-width:750px; height:auto; margin:auto; border:2px solid #5d6680; border-radius:13px; background:#272e50; touch-action:none; }.game-note { margin:12px 0 0; color:#c7cee2; text-align:center; font-size:.9rem; }.game-over-panel { display:none; position:absolute; inset:66px 26px 42px; place-items:center; background:rgba(20,25,45,.94); border-radius:13px; text-align:center; z-index:2; }.game-over-panel.show { display:grid; }.game-over-card { position:relative; width:min(420px,90%); min-height:210px; padding:24px 22px 18px; background:#f7e4c0; color:var(--ink); border:3px solid #5d1f38; border-radius:14px; box-shadow:0 0 0 5px #f58aac; }.game-over-card img { position:absolute; width:148px; right:-32px; bottom:-11px; image-rendering:auto; }.game-over-card h3 { margin:0 0 9px; font-size:1.6rem; }.game-over-card p { max-width:225px; margin:6px 0; font:500 .9rem "DM Mono",monospace; }.game-over-card .game-button { margin-top:14px; border-color:var(--ink); }
+      .contact { text-align:center; padding:95px 0 110px; }.contact-box { padding:42px 25px; border:2px solid var(--ink); border-radius:26px; background:var(--coral); box-shadow:7px 7px 0 var(--ink); }.contact-box p { max-width:600px; margin:0 auto 22px; }.email { font-size:clamp(1.15rem,3vw,1.8rem); color:var(--ink); font-weight:800; word-break:break-word; } footer { padding:25px 0 32px; color:var(--muted); font:400 .8rem "DM Mono",monospace; text-align:center; }
+      .deck { display:grid; grid-template-columns:210px minmax(0,1fr); gap:38px; padding:18px 0 50px; } .side-menu { position:sticky; top:20px; align-self:start; padding:13px; background:rgba(255,255,255,.72); border:2px solid var(--ink); border-radius:20px; box-shadow:4px 4px 0 var(--ink); backdrop-filter:blur(10px); } .side-menu p { margin:4px 8px 11px; color:var(--muted); font:500 .69rem "DM Mono",monospace; text-transform:uppercase; letter-spacing:.08em; } .side-item { display:block; width:100%; padding:10px 9px; border:0; border-radius:12px; color:var(--ink); background:transparent; text-align:left; cursor:pointer; font:700 .91rem Outfit,sans-serif; transition:.18s; } .side-item small { display:block; margin-top:2px; color:var(--muted); font:400 .67rem "DM Mono",monospace; } .side-item:hover,.side-item.active { background:linear-gradient(90deg,var(--pink),var(--blue)); } .side-item.locked { opacity:.7; background:#eeeaf1; } .side-item.locked:hover { background:#eeeaf1; } .side-item b { color:var(--purple); margin-right:6px; font:500 .73rem "DM Mono",monospace; } .slide { display:none; animation:slideIn .35s ease-out; } .slide.active { display:block; } .slide.hero.active { display:grid; } .brand-image { width:38px; height:38px; object-fit:cover; border-radius:14px; border:2px solid var(--ink); box-shadow:3px 3px 0 var(--ink); } @keyframes slideIn { from { opacity:0; transform:translateX(18px); } to { opacity:1; transform:translateX(0); } }
+      @media (max-width:760px) { .wrap{width:min(100% - 28px,1120px)} header{padding:16px 0} nav{display:none}.deck{display:block;padding-top:6px}.side-menu{position:static;display:flex;overflow:auto;gap:5px;margin:0 0 13px;padding:8px}.side-menu p{display:none}.side-item{white-space:nowrap;width:auto;padding:8px 10px;font-size:.8rem}.side-item small{display:none}.hero{grid-template-columns:1fr;gap:24px;padding:44px 0 58px;min-height:0}.dragon-card{min-height:320px}.projects,.about{grid-template-columns:1fr}section{padding:58px 0}.game-shell{padding:16px}.game-top{align-items:flex-start;flex-direction:column}.contact{padding:65px 0}.contact-box{padding:33px 18px} }
+      .star-field { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }.star { position:absolute; width:4px; height:4px; background:white; border-radius:50%; box-shadow:0 0 8px 3px rgba(236,53,110,.65); animation:twinkle var(--speed) ease-in-out infinite alternate; }.star::after { content:"✦"; position:absolute; inset:50%; color:#ff58a0; font-size:14px; transform:translate(-50%,-50%); }.star:nth-child(3n)::after { color:#6cccf8; } @keyframes twinkle { from{opacity:.18;transform:scale(.6)} to{opacity:1;transform:scale(1.3)} }
+      .project-shot { width:100%; height:145px; margin-bottom:5px; object-fit:cover; object-position:top; border:2px solid var(--ink); border-radius:12px; background:white; }.work-heading { margin:60px 0 0; font-size:clamp(1.7rem,3vw,2.3rem); }.work-heading + .projects { grid-template-columns:repeat(2,minmax(0,1fr)); }.emote { position:absolute; width:110px; pointer-events:none; filter:drop-shadow(3px 5px 0 rgba(24,32,51,.18)); animation:emoteFloat 4s ease-in-out infinite; }.emote.hero-emote { width:98px; left:-32px; bottom:10px; transform:rotate(-8deg); }.emote.about-emote { width:115px; right:-36px; top:-40px; }.emote.contact-emote { width:106px; left:-30px; bottom:-35px; }.emote.project-emote { width:70px; right:10px; top:8px; }.project { position:relative; overflow:hidden; }.about-card,.contact-box { position:relative; overflow:visible; } @keyframes emoteFloat { 50% { translate:0 -9px; } } @media (max-width:760px) { .work-heading + .projects { grid-template-columns:1fr; } }
+      .michi-cursor { display:none; position:fixed; z-index:9999; width:52px; height:52px; object-fit:contain; pointer-events:none; transform:translate(-7px,-5px); filter:drop-shadow(2px 3px 0 rgba(24,32,51,.25)); }.cursor-fire { position:fixed; z-index:9998; width:10px; height:10px; border-radius:50%; pointer-events:none; background:radial-gradient(circle,#fff5a8 0 18%,#ff9b36 32%,#ec356e 70%,transparent 71%); transform:translate(-50%,-50%); animation:fireFade .6s ease-out forwards; } @keyframes fireFade { to { opacity:0; transform:translate(var(--dx),var(--dy)) scale(.15); } } @media (pointer:fine) { body, a, button { cursor:none; } .michi-cursor { display:block; } } @media (max-width:760px) { .emote{width:82px}.emote.hero-emote{left:-20px}.emote.about-emote{right:-20px} }
+      .story { max-width:900px; margin:auto; padding-bottom:70px; }.story-cover { padding:46px 28px; text-align:center; color:#fff7f5; border:3px solid #3c1731; border-radius:28px; background:linear-gradient(140deg,#321d44,#a12e61 58%,#f07ba7); box-shadow:8px 8px 0 #3c1731; }.story-cover h2 { font-size:clamp(2.2rem,5vw,4.4rem); margin:8px 0; }.story-cover p { margin:0; font-family:"DM Mono",monospace; }.story-chapter { position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(220px,360px); gap:26px; margin:48px 0; padding:28px; background:#fffaf0; border:2px solid #4a2940; border-radius:23px; box-shadow:5px 5px 0 #4a2940; }.story-chapter:nth-child(odd) { background:#fff0f6; }.story-chapter h3 { margin:0 0 15px; font-size:1.65rem; }.story-chapter p { color:#3d3745; }.story-chapter strong { color:#ba245b; }.story-chapter em { color:#7e2851; }.story-panel { width:100%; align-self:start; border:3px solid #332337; border-radius:13px; box-shadow:4px 4px 0 #f18db3; }.story-ending { text-align:center; grid-template-columns:1fr; }.story-ending .story-panel { max-width:660px; margin:auto; }.story-sparkle { color:#ec356e; font-size:1.3rem; letter-spacing:8px; } @media (max-width:760px) { .story-chapter { grid-template-columns:1fr; padding:19px; }.story-cover { padding:32px 16px; } }
+      .hero h1 { font-size:clamp(2.75rem,6.5vw,5.1rem); }.contact-box { min-height:330px; background:linear-gradient(135deg,#ff9fc0,#a8dcff); overflow:hidden; }.contact-screen { position:absolute; right:30px; bottom:18px; width:190px; border:3px solid var(--ink); border-radius:12px; box-shadow:5px 5px 0 rgba(24,32,51,.35); transform:rotate(4deg); }.contact-box h2,.contact-box > p,.contact-box .email { position:relative; z-index:1; display:block; max-width:55%; margin-left:auto; margin-right:auto; }.contact-box .email { max-width:60%; }.runner { position:fixed; left:-115px; bottom:6px; z-index:60; width:92px; pointer-events:none; filter:drop-shadow(3px 4px 0 rgba(24,32,51,.22)); animation:runAcross 20s linear infinite, littleJump .55s steps(2,end) infinite; }.runner:hover { animation-play-state:paused; } @keyframes runAcross { to { left:calc(100vw + 20px); } } @keyframes littleJump { 50% { translate:0 -12px; } } @media (max-width:760px) { .contact-box { min-height:390px; }.contact-screen { width:150px; right:12px; bottom:15px; }.contact-box h2,.contact-box > p,.contact-box .email { max-width:100%; padding-right:115px; }.runner { width:70px; } }
+      .music-player { position:fixed; top:13px; right:16px; z-index:100; display:flex; gap:9px; align-items:center; padding:8px 11px; color:#fff; border:2px solid #3d2038; border-radius:17px; background:linear-gradient(135deg,#ec356e,#986fca); box-shadow:3px 3px 0 #3d2038; font-size:.75rem; }.music-player strong { display:block; max-width:145px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }.music-player small { display:block; opacity:.82; }.music-player button { display:grid; place-items:center; width:29px; height:29px; padding:0; color:#3d2038; border:2px solid #3d2038; border-radius:50%; background:#ffe496; font-weight:800; cursor:pointer; }.music-player input { width:70px; accent-color:#ffe496; }.welcome { position:fixed; z-index:200; right:20px; bottom:22px; display:flex; gap:10px; align-items:center; max-width:320px; padding:12px; border:3px solid #47233d; border-radius:20px; background:linear-gradient(135deg,#fff5f9,#dff4ff); box-shadow:5px 5px 0 #47233d; animation:welcomeIn .6s ease-out; }.welcome img { width:78px; height:78px; object-fit:contain; transform-origin:65% 60%; animation:wave 1s ease-in-out infinite alternate; }.welcome b { display:block; }.welcome p { margin:3px 0 0; font-size:.83rem; }.welcome button { position:absolute; top:5px; right:8px; border:0; background:transparent; font-size:17px; cursor:pointer; }.welcome.hide { animation:welcomeOut .25s ease-in forwards; } @keyframes wave { from { transform:rotate(-7deg) translateY(2px); } to { transform:rotate(8deg) translateY(-3px); } } @keyframes welcomeIn { from { opacity:0; translate:0 25px; } } @keyframes welcomeOut { to { opacity:0; translate:0 20px; } } @media (max-width:760px) { .music-player { top:auto; bottom:11px; right:9px; }.music-player strong { max-width:88px; }.music-player input { width:46px; }.welcome { right:9px; bottom:65px; max-width:280px; } }
+      .skills-switch { display:flex; gap:9px; margin:24px 0 18px; }.skill-toggle { padding:9px 13px; border:2px solid var(--ink); border-radius:12px; background:#fff; color:var(--ink); font-weight:800; cursor:pointer; box-shadow:2px 2px 0 var(--ink); }.skill-toggle.active { color:white; background:var(--purple); }.skills-grid .project { background:linear-gradient(145deg,#fff,#fff2f7); }.skills-list { display:grid; gap:12px; margin-top:20px; }.skills-list div { display:grid; grid-template-columns:200px 1fr; gap:14px; padding:16px 18px; border:2px solid var(--ink); border-radius:15px; background:linear-gradient(100deg,#ffdaea,#d9f4ff); box-shadow:3px 3px 0 var(--ink); }.skills-list b { color:#b22256; }.skills-list span { color:#40475c; }.runner.escape { animation:none; left:var(--escape-x); bottom:var(--escape-y); transition:left .25s ease-out,bottom .25s ease-out; } @media (max-width:760px) { .skills-list div { grid-template-columns:1fr; gap:5px; }.skills-list { font-size:.9rem; } }
+      .skills-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; }.skill-card { min-height:0; padding:19px; border:2px solid var(--ink); border-radius:18px; background:linear-gradient(135deg,#fff4f8,#e7f7ff); box-shadow:4px 4px 0 var(--ink); }.skill-card:nth-child(3n+2) { background:linear-gradient(135deg,#fff6d9,#ffe9f1); }.skill-card > span { display:grid; place-items:center; width:38px; height:38px; border:2px solid var(--ink); border-radius:11px; background:#fff; font-size:20px; }.skill-card h3 { margin:11px 0 8px; font-size:1.12rem; }.skill-card ul { display:grid; gap:6px; margin:0; padding:0; list-style:none; color:#4d5365; font-size:.9rem; }.skill-card li { padding-bottom:5px; border-bottom:1px dashed rgba(91,61,88,.25); }.skill-card li:last-child { border:0; padding:0; }.skill-card small { color:#9a4770; font-weight:700; }.skills-list div { grid-template-columns:220px 1fr; }.skills-list div span { display:block; padding:5px 0 5px 13px; border-left:2px solid #ed82ab; }.skills-list div b { grid-row:span 8; align-self:start; }.skills-list div { align-items:start; } @media (max-width:760px) { .skills-grid { grid-template-columns:1fr; }.skills-list div { grid-template-columns:1fr; }.skills-list div b { grid-row:auto; } }
+      .skills-grid[hidden], .skills-list[hidden] { display:none !important; }
+    </style>
+  </head>
+  <body>
+    <div class="star-field" aria-hidden="true"></div>
+    <img class="michi-cursor" id="michi-cursor" src="assets/cursor-michi.webp" alt="" aria-hidden="true" />
+    <img class="runner" src="assets/human-ver.webp" alt="Michita corriendo" />
+    <div class="music-player" aria-label="Reproductor de música">
+      <button id="music-play" type="button" aria-label="Reproducir música">▶</button><div><strong>「MICHITA.exe」 Remix</strong><small id="music-status">Pausa</small></div><button id="music-mute" type="button" aria-label="Silenciar música">🔊</button><input id="music-volume" type="range" min="0" max="1" step="0.05" value="0.35" aria-label="Volumen" />
+      <audio id="bg-music" loop preload="metadata"><source src="assets/michita-remix.mp3" type="audio/mpeg" /></audio>
+    </div>
+    <aside class="welcome" id="welcome" aria-label="Bienvenida de Michita"><img src="assets/michi-dev.webp" alt="Michita saludando" /><div><b>¡Hola, soy Michita! ✦</b><p>Bienvenida a mi rincón de código, café y caos bonito.</p></div><button id="welcome-close" type="button" aria-label="Cerrar bienvenida">×</button></aside>
+    <div class="wrap">
+      <header>
+        <a class="brand" href="#inicio" onclick="showSlide('inicio');return false"><img class="brand-image" src="assets/michi-dev.webp" alt="Michi saludando" />michi.dev</a>
+        <nav><a href="#proyectos" onclick="showSlide('proyectos');return false">Habilidades</a><a href="#sobre-mi" onclick="showSlide('sobre-mi');return false">Sobre mí</a><a href="#contacto" onclick="showSlide('contacto');return false">Contacto</a></nav>
+      </header>
+
+      <main id="inicio" class="deck">
+        <aside class="side-menu" aria-label="Navegación del portfolio">
+          <p>Modo presentación</p>
+          <button class="side-item active" data-slide="inicio" onclick="showSlide('inicio')"><b>01</b>Inicio<small>Qué hago y por qué</small></button>
+          <button class="side-item" data-slide="proyectos" onclick="showSlide('proyectos')"><b>02</b>Habilidades<small>Formación y experiencia</small></button>
+          <button class="side-item" data-slide="sobre-mi" onclick="showSlide('sobre-mi')"><b>03</b>Sobre mí<small>Forma de trabajar</small></button>
+          <button class="side-item" data-slide="sobre-michita" onclick="showSlide('sobre-michita')"><b>04</b>Sobre Michita<small>Una historia de café</small></button>
+          <button class="side-item locked" data-slide="easter-egg" onclick="showSlide('easter-egg')"><b>05</b>🔒 Easter egg<small>Pista: 3 veces en el inicio</small></button>
+          <button class="side-item" data-slide="contacto" onclick="showSlide('contacto')"><b>06</b>Contacto<small>Hablemos de trabajo</small></button>
+        </aside>
+        <div class="slides">
+        <section class="hero slide active" data-slide="inicio">
+          <div>
+            <span class="eyebrow">● Disponible para nuevas oportunidades</span>
+            <h1>Menos burocracia inútil. <span>Más código que funcione y café que mate.</span></h1>
+            <p>Soy Michi, desarrollador de software especializado en automatización de procesos. Creo scripts, aplicaciones sencillas y herramientas claras que hacen el trabajo diario un poco más fácil.</p>
+            <div class="actions"><button class="button primary" onclick="showSlide('proyectos')">Ver lo que puedo hacer ↓</button><button class="button" onclick="showSlide('contacto')">Hablemos</button></div>
+          </div>
+          <div class="dragon-card" id="start-scene" onclick="secretClick()" role="button" tabindex="0" aria-label="Escena de Michi programando. Puede ocultar un secreto.">
+            <img class="hero-scene" src="assets/inicio.webp" alt="Michi programando en su escritorio" />
+            <img class="emote hero-emote" src="assets/emote-pc.webp" alt="" aria-hidden="true" />
+            <span class="sticker top">Michi.exe</span><span class="sticker bottom">automatizando cosas ✦</span><span class="secret-note" id="secret-note">Hmm… quizá hay algo aquí.</span>
+          </div>
+        </section>
+
+        <section id="proyectos" class="slide" data-slide="proyectos">
+          <img class="emote project-emote" src="assets/emote-corriendo.webp" alt="" aria-hidden="true" />
+          <p class="section-label">Perfil profesional</p><h2>Habilidades, formación y certificaciones.</h2>
+          <p class="intro">Una mezcla de tecnología, logística, gestión y diseño visual. Puedes alternar entre el resumen o la vista completa.</p>
+          <div class="skills-switch"><button class="skill-toggle active" type="button" data-skills-view="cards">▦ Cuadros</button><button class="skill-toggle" type="button" data-skills-view="list">☷ Lista</button></div>
+          <div class="skills-grid" id="skills-cards">
+            <article class="skill-card"><span>⚙</span><h3>Tecnología</h3><ul><li>Desarrollo de Software</li><li>Ciberseguridad</li><li>Análisis de Vulnerabilidades</li><li>IA management</li></ul></article>
+            <article class="skill-card"><span>▣</span><h3>Logística y administración</h3><ul><li>Tráfico de Mercancías</li><li>Aprovisionamiento</li><li>Gestión de Stock</li><li>Documentación de Exportación</li></ul></article>
+            <article class="skill-card"><span>🎓</span><h3>Formación</h3><ul><li>Máster en Ciberseguridad<br><small>MEDAC / MASTER.D</small></li><li>Grado Superior en Desarrollo de Software<br><small>MEDAC / DAVANTE</small></li></ul></article>
+            <article class="skill-card"><span>✦</span><h3>Certificaciones</h3><ul><li>Google AI Essentials</li><li>HubSpot Service Hub Software</li><li>HubSpot Marketing en Redes Sociales</li><li>HubSpot Habilitación de Ventas</li><li>SEF COML0109 · Tráfico por Carretera</li><li>SEF COML0210 · Gestión de Aprovisionamiento</li></ul></article>
+            <article class="skill-card"><span>🎨</span><h3>Habilidades propias</h3><ul><li>Diseño de personajes</li><li>Diseño de logos</li><li>Edición de imágenes</li><li>IA aplicada a cada necesidad</li></ul></article>
+          </div>
+          <div class="skills-list" id="skills-list" hidden><div><b>⚙ Tecnología</b><span>Desarrollo de Software</span><span>Ciberseguridad</span><span>Análisis de Vulnerabilidades</span><span>IA management</span></div><div><b>▣ Logística / Administración</b><span>Gestión de Tráfico de Mercancías</span><span>Aprovisionamiento</span><span>Gestión de Stock</span><span>Documentación de Exportación</span></div><div><b>🎓 Formación</b><span>Máster en Ciberseguridad — MEDAC / MASTER.D</span><span>Grado Superior en Desarrollo de Software — MEDAC / DAVANTE</span></div><div><b>✦ Certificaciones</b><span>HubSpot: Service Hub Software</span><span>HubSpot: Marketing en Redes Sociales</span><span>HubSpot: Habilitación de Ventas</span><span>Google AI Essentials</span><span>SEF COML0109 — Tráfico de Mercancías por Carretera</span><span>SEF COML0210 — Gestión y Control del Aprovisionamiento</span></div><div><b>🎨 Habilidades propias</b><span>Diseño de personajes y logos</span><span>Edición de imágenes</span><span>Uso de IAs aplicadas según cada necesidad</span></div></div>
+          <h3 class="work-heading">Algunos de mis trabajos</h3>
+          <div class="projects">
+            <article class="project"><img class="project-shot" src="assets/proyecto-asistente.png" alt="Captura de la aplicación Michita Asistente" /><h3>Michita Asistente</h3><p>Mi asistente personal para móvil. La idea y la fórmula se pueden adaptar para crear asistentes personalizados según cada necesidad.</p><div class="tags"><span class="tag">App móvil</span><span class="tag">UI</span><span class="tag">Asistente personal</span></div></article>
+            <article class="project"><img class="project-shot" src="assets/proyecto-michichamba.png" alt="Captura de la aplicación Mi Michichamba" /><h3>Mi Michichamba</h3><p>Registro personal de jornadas, pausas y tiempo trabajado; una herramienta sencilla para tener el día bajo control.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Productividad</span><span class="tag">Datos</span></div></article>
+          </div>
+        </section>
+
+        <section id="sobre-mi" class="slide" data-slide="sobre-mi"><div class="about"><div class="about-card"><img class="emote about-emote" src="assets/emote-pensando.webp" alt="" aria-hidden="true" /><p class="section-label">Sobre mí</p><h2>Trabajo tranquilo, ordenado y con propósito.</h2><p>No me gusta el ruido innecesario ni las soluciones que resuelven problemas que nadie tenía. Prefiero entender bien el objetivo, darle una vuelta y convertirlo en algo práctico que de verdad le sirva a la gente.</p><p>Estudié Desarrollo de Aplicaciones Multiplataforma y completé un máster en Ciberseguridad. Me interesa el código limpio, los sistemas bien pensados y la sensación de que lo que construyo encaja con la forma de trabajar de quien lo usa.</p><p>Soy reservado, pero no tímido. Trabajo bien en equipo, valoro la comunicación directa y el trabajo organizado. Y si algo no funciona, prefiero que se diga pronto y se arregle bien.</p><p>Busco un equipo donde pueda sentirme cómodo, aprender y aportar soluciones que tengan sentido. Donde el código no sea solo código, sino una herramienta para que la gente haga mejor su trabajo.</p></div><div class="about-card"><img class="emote about-emote" src="assets/emote-cafe.webp" alt="" aria-hidden="true" /><p class="section-label">Cómo aporto</p><div class="traits"><div class="trait"><i class="dot"></i><div><b>Objetivos claros, pasos claros</b><span>Si me das un objetivo claro, lo convierto en pasos que hasta un michi podría seguir… bueno, quizá no, pero casi.</span></div></div><div class="trait"><i class="dot"></i><div><b>Menos lío, por favor</b><span>Mi primera pregunta siempre es: “¿esto se puede hacer más fácil?”. El código complicado es como el café frío: nadie lo pidió.</span></div></div><div class="trait"><i class="dot"></i><div><b>Útil de verdad</b><span>Una herramienta que no se entiende no sirve. Me gusta que lo que construyo sea útil para quien lo usa, no solo para quien lo programa.</span></div></div><div class="trait"><i class="dot"></i><div><b>Curiosidad constante</b><span>Sigo aprendiendo cada día y busco proyectos que me enseñen cosas nuevas. Y personas que me soporten haciéndoles preguntas.</span></div></div></div></div></div></section>
+
+        <section id="easter-egg" class="slide" data-slide="easter-egg"><p class="section-label">Easter egg</p><h2>Ayuda a Michi a esquivar el café.</h2><p class="intro">Michi se queda en su sitio y maniobra arriba o abajo. Los cafés y las energéticas vienen de la izquierda. Tres golpes y toca descansar.</p><div class="game-shell"><div class="game-top"><div><h3>La huida de Michi</h3><p id="game-status">Pulsa “empezar” para volar.</p></div><button class="game-button" id="start-game" type="button">▶ Empezar</button></div><canvas class="game-canvas" id="game" width="750" height="300" aria-label="Juego de Michi esquivando café y bebidas energéticas"></canvas><div class="game-over-panel" id="game-over"><div class="game-over-card"><h3>Demasiado café…</h3><p id="final-score">Puntuación: 0</p><p id="final-best">Mejor puntuación: 0</p><button class="game-button" id="restart-game" type="button">↻ Otra ronda</button><img src="assets/michi-derrotado.webp" alt="Michi derrotada entre cafés" /></div></div><p class="game-note">Teclado: ↑ / ↓ o W / S · Móvil: toca la mitad superior o inferior de la pantalla</p></div></section>
+
+        <section id="sobre-michita" class="slide" data-slide="sobre-michita"><div class="story"><div class="story-cover"><div class="story-sparkle">✦ ✦ ✦</div><p>Las aventuras de Michita en el mundo humano</p><h2>Michi: El Dragón que Quería ser contratado</h2><p>Una historieta de código, café y una cola muy difícil de ocultar.</p></div>
+          <article class="story-chapter"><div><h3>01 · El piso de alquiler</h3><p>Michi llevaba <strong>tres días sin dormir</strong>. Bueno, sin dormir bien: había dormido a ratos, con la cara apoyada en el teclado, soñando con líneas de código que se convertían en serpientes y luego en tazas de café gigantes.</p><p>Lo peor no era el insomnio, sino llevar <strong>tres años programando en soledad</strong>: proyectos freelance, clientes que no pagaban y frameworks que se rompían a las cuatro de la mañana. <em>“Necesito un jefe. Necesito que alguien me diga lo que tengo que hacer. Necesito… una nómina.”</em></p><p>Los dragones no estaban bien vistos en el mercado laboral, así que tomó una decisión: se disfrazaría de humano. La magia de tercera categoría funcionó a medias: los cuernos no desaparecieron y la cola se negaba a ser solo un recuerdo.</p></div><img class="story-panel" src="assets/vigneta-1.webp" alt="Michi agotado programando entre muchas tazas de café" /></article>
+          <article class="story-chapter"><div><h3>02 · El disfraz</h3><p>La forma humana era extraña: piernas torpes, pelo liso y una cola con vida propia. Michi intentó esconder cuernos y cola con las manos; solo consiguió dolor, ruido de maleta sobrecargada y una cola golpeándole en la cara.</p><p>La solución fue una gorra demasiado ajustada y la cola dentro de una pernera, sujeta con cordel. Caminaba tieso, pero tenía un plan: <em>“Si me descubren diré que soy el nuevo becario con una enfermedad rara. Nadie cuestiona a los becarios.”</em></p></div><img class="story-panel" src="assets/vigneta-2.webp" alt="Michi intentando disfrazarse de humano frente al espejo" /></article>
+          <article class="story-chapter"><div><h3>03 · La entrevista</h3><p>En una oficina moderna, el jefe miraba su currículum y, sobre todo, la gorra sospechosamente ladeada. Michi respondió con una sonrisa demasiado afilada: <em>“He domado código más indomable que un dragón de tres cabezas y resuelto bugs que harían llorar a un ingeniero de la NASA.”</em></p><p>Cuando le preguntaron por qué quería el puesto, fue sincero: el café era gratis y necesitaba un equipo. La cola se escapó y se enroscó en la silla. <em>“Es mi nueva silla ergonómica. Tiene masaje antiestrés.”</em> El jefe sonrió: <strong>“Usted está contratado.”</strong></p></div><img class="story-panel" src="assets/vigneta-3.webp" alt="Michi en una entrevista de trabajo ocultando su cola" /></article>
+          <article class="story-chapter"><div><h3>04 · La compañera</h3><p>Los primeros días estuvieron llenos de reglas humanas absurdas: no programar con la cola, no echar humo por la nariz en reuniones y no llevar cuernos como accesorio de moda.</p><p>Laura siempre aparecía cuando algo se escapaba del disfraz. Vio un cuerno y luego la cola saludando desde el pantalón. Michi improvisó: <em>“Es mi cargador de móvil, con forma de serpiente. Los becarios tenemos accesorios raros.”</em> Salió corriendo. El disfraz aguantaba, a duras penas.</p></div><img class="story-panel" src="assets/vigneta-4.webp" alt="Michi intentando ocultar cuernos y cola ante una compañera" /></article>
+          <article class="story-chapter"><div><h3>05 · El bug ha caído</h3><p>A las tres de la mañana, con los cuernos libres y la gorra en el suelo, Michi llevaba 72 horas programando. El plazo era ridículo y el café se había acabado hacía tres horas, pero no podía parar.</p><p><em>“¡Sí! ¡El bug ha caído! ¡Le he hecho un push que hasta su madre lloraría!”</em> Susurró al teclado: <em>“Eres mío, código. Esta noche terminamos juntos, aunque me cueste la cordura.”</em> La cola se enroscó en la silla, como si aprobara. Solo quedaba una petición: más café.</p></div><img class="story-panel" src="assets/vigneta-5.webp" alt="Michi programando de madrugada y celebrando arreglar un bug" /></article>
+          <article class="story-chapter"><div><h3>06 · Bienvenido al equipo</h3><p>Al amanecer, Michi dormía sobre el teclado. La pantalla decía: <strong>“Proyecto completado. 100%. Push exitoso.”</strong> El jefe vio los cuernos, la cola y el babeo sobre el teclado.</p><p>En vez de llamar a seguridad, dejó una taza de café y una manta. <em>“Bienvenido al equipo, pequeño dragón. Aquí todos tenemos nuestros monstruos. Pero tú eres el que mejor código escribe.”</em> Michi respondió dormido: <em>“Más café… más líneas… y no me toques la cola…”</em></p></div><img class="story-panel" src="assets/vigneta-6.webp" alt="El jefe encuentra a Michi dormido tras terminar el proyecto" /></article>
+          <article class="story-chapter story-ending"><div><h3>EPÍLOGO · Bienvenido a casa</h3><p>Tres horas después, Michi encontró una nota en su monitor: <em>“Buen trabajo, Michi. O debería decir Michita. La cola te delató. Aquí los programadores con cola y cuernos tienen plaza fija. Y café ilimitado.”</em></p><p>Por primera vez en tres años, Michi supo lo que era sentirse en casa. <strong>FIN</strong></p></div><img class="story-panel" src="assets/epilogo.png" alt="Michi abrazado junto a una pantalla retro en el epílogo" /></article>
+        </div></section>
+        <section class="contact slide" id="contacto" data-slide="contacto"><div class="contact-box"><img class="emote contact-emote" src="assets/emote-feliz.webp" alt="" aria-hidden="true" /><img class="contact-screen" src="assets/pantalla.webp" alt="Michita tras una pantalla, preparada para responder" /><p class="section-label">¿Hablamos?</p><h2>Estoy buscando mi próxima oportunidad.</h2><p>Si crees que puedo encajar en tu equipo o tienes una tarea que podría automatizarse, estaré encantada de conocerla.</p><a class="email" href="mailto:michimachochita@gmail.com">michimachochita@gmail.com</a></div></section>
+        </div>
+      </main>
+      <footer>Hecho por Michi · con curiosidad, café y alguna automatización de por medio.</footer>
+    </div>
+    <script>
+      let easterEggUnlocked = false;
+      let secretClicks = 0;
+      function showSlide(id) {
+        if (id === 'easter-egg' && !easterEggUnlocked) return;
+        document.querySelectorAll('.slide').forEach(slide => slide.classList.toggle('active', slide.dataset.slide === id));
+        document.querySelectorAll('.side-item').forEach(item => item.classList.toggle('active', item.dataset.slide === id));
+        if (id !== 'easter-egg' && typeof running !== 'undefined' && running) { running = false; cancelAnimationFrame(animation); }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      function secretClick() {
+        if (easterEggUnlocked) return;
+        secretClicks++;
+        const note = document.getElementById('secret-note');
+        note.textContent = secretClicks < 3 ? `Hmm… ${3 - secretClicks} clic${3 - secretClicks === 1 ? '' : 's'} más.` : '¡Easter egg desbloqueado!';
+        note.classList.add('show');
+        if (secretClicks === 3) {
+          easterEggUnlocked = true;
+          const button = document.querySelector('[data-slide="easter-egg"]');
+          button.classList.remove('locked'); button.innerHTML = '<b>04</b>✨ Easter egg<small>El vuelo de Michi</small>';
+          setTimeout(() => showSlide('easter-egg'), 550);
+        }
+      }
+      document.getElementById('start-scene').addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); secretClick(); } });
+      const canvas = document.getElementById('game'); const ctx = canvas.getContext('2d'); const startButton = document.getElementById('start-game'); const status = document.getElementById('game-status');
+      let running = false, frame = 0, score = 0, best = 0, dragon, clouds, animation;
+      function reset(){ dragon={x:120,y:150,velocity:0}; clouds=[]; score=0; frame=0; }
+      function drawDragon(x,y){ ctx.save();ctx.translate(x,y);ctx.fillStyle='#a688ec';ctx.strokeStyle='#10182b';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(0,0,26,20,0,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='#b8f2d2';ctx.beginPath();ctx.ellipse(-20,1,21,13,-.5,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='#ffe496';ctx.beginPath();ctx.moveTo(7,-17);ctx.lineTo(14,-35);ctx.lineTo(19,-15);ctx.fill();ctx.stroke();ctx.fillStyle='white';[-7,8].forEach(ex=>{ctx.beginPath();ctx.ellipse(ex,-5,6,9,0,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='#10182b';ctx.beginPath();ctx.arc(ex,-3,2,0,Math.PI*2);ctx.fill();ctx.fillStyle='white';});ctx.restore(); }
+      function drawCloud(c){ctx.save();ctx.translate(c.x,c.y);ctx.fillStyle='#e5e9f7';ctx.strokeStyle='#7180a5';ctx.lineWidth=2;[-15,0,17].forEach((x,i)=>{ctx.beginPath();ctx.arc(x,i===1?-9:0,i===1?17:13,0,Math.PI*2);ctx.fill();ctx.stroke();});ctx.fillRect(-28,0,55,12);ctx.restore();}
+      function render(){ctx.clearRect(0,0,canvas.width,canvas.height); const g=ctx.createLinearGradient(0,0,0,300);g.addColorStop(0,'#20294a');g.addColorStop(1,'#465b93');ctx.fillStyle=g;ctx.fillRect(0,0,750,300);ctx.fillStyle='rgba(255,255,255,.65)';for(let i=0;i<26;i++){const x=(i*83+frame*.3)%750,y=(i*47)%250;ctx.fillRect(x,y,2,2)} clouds.forEach(drawCloud);drawDragon(dragon.x,dragon.y);ctx.font='600 17px DM Mono';ctx.fillStyle='white';ctx.fillText(`Nubes: ${score}`,20,30);ctx.fillText(`Récord: ${best}`,610,30);}
+      function loop(){if(!running)return;frame++;dragon.velocity+=.16;dragon.y+=dragon.velocity;dragon.y=Math.max(20,Math.min(280,dragon.y));if(frame%82===0)clouds.push({x:790,y:45+Math.random()*205,speed:3+Math.random()*1.4});clouds.forEach(c=>c.x-=c.speed);clouds=clouds.filter(c=>c.x>-60);for(const c of clouds){if(Math.abs(c.x-dragon.x)<37&&Math.abs(c.y-dragon.y)<29){running=false;best=Math.max(best,score);status.textContent=`¡Oh no! ${score} nubes esquivadas. Inténtalo de nuevo.`;startButton.textContent='↻ Reintentar';render();return;}}score=Math.floor(frame/25);render();animation=requestAnimationFrame(loop)}
+      function fly(){dragon.velocity=-4.3;} function descend(){dragon.velocity=3.1;} function begin(){cancelAnimationFrame(animation);reset();running=true;status.textContent='¡Vuela, Michi, vuela!';startButton.textContent='↻ Reiniciar';render();loop();} startButton.addEventListener('click',begin);window.addEventListener('keydown',e=>{if(['ArrowUp','w','W','ArrowDown','s','S'].includes(e.key)){e.preventDefault();if(running){['ArrowUp','w','W'].includes(e.key)?fly():descend();}}});canvas.addEventListener('pointerdown',e=>{if(!running)return;const rect=canvas.getBoundingClientRect();e.clientY-rect.top<rect.height/2?fly():descend();});reset();render();
+    </script>
+    <script>
+      // Versión arcade: Michi no avanza; las bebidas llegan desde la izquierda.
+      const michiFrames = ['assets/michi-volando-1.webp', 'assets/michi-volando-2.webp'].map(src => { const image = new Image(); image.src = src; return image; });
+      const coffeeImage = new Image(); coffeeImage.src = 'assets/cafe.webp';
+      const energyImage = new Image(); energyImage.src = 'assets/energetica.webp';
+      const statsImage = new Image(); statsImage.src = 'assets/cuadro-estadisticas.webp';
+      const gameOverPanel = document.getElementById('game-over');
+      const finalScore = document.getElementById('final-score');
+      const finalBest = document.getElementById('final-best');
+      const restartButton = document.getElementById('restart-game');
+      let lives = 3, invulnerableUntil = 0, spawned = 0;
+
+      function reset() {
+        dragon = { x: 575, y: 150, width: 115, height: 105, velocity: 0 };
+        clouds = []; score = 0; frame = 0; lives = 3; spawned = 0; invulnerableUntil = 0;
+      }
+      function drawDragon(x, y) {
+        const image = michiFrames[Math.floor(frame / 16) % 2];
+        if (!image.complete || (Date.now() < invulnerableUntil && Math.floor(frame / 5) % 2 === 0)) return;
+        ctx.drawImage(image, x - dragon.width / 2, y - dragon.height / 2, dragon.width, dragon.height);
+      }
+      function drawCloud(item) {
+        const image = item.type === 'cafe' ? coffeeImage : energyImage;
+        ctx.drawImage(image, item.x - item.size / 2, item.y - item.size / 2, item.size, item.size);
+      }
+      function render() {
+        const sky = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        sky.addColorStop(0, '#82cef2'); sky.addColorStop(1, '#ff94bb'); ctx.fillStyle = sky; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(255,255,255,.42)'; for (let i = 0; i < 35; i++) { const x = (i * 97 + frame * .9) % canvas.width; const y = (i * 53) % canvas.height; ctx.fillRect(x, y, 2, 2); }
+        clouds.forEach(drawCloud); drawDragon(dragon.x, dragon.y);
+        if (statsImage.complete) ctx.drawImage(statsImage, 12, 8, 190, 190);
+        ctx.fillStyle = '#51223a'; ctx.textAlign = 'center'; ctx.font = '700 15px "DM Mono"';
+        ctx.fillText('PUNTUACIÓN', 106, 88); ctx.font = '800 28px Outfit'; ctx.fillText(score, 106, 121);
+        ctx.font = '700 13px "DM Mono"'; ctx.fillText('MEJOR', 106, 151); ctx.font = '800 21px Outfit'; ctx.fillText(best, 106, 179);
+        ctx.textAlign = 'left'; ctx.fillStyle = '#fff'; ctx.font = '700 18px Outfit'; ctx.fillText('Vidas: ' + '♥'.repeat(lives) + '♡'.repeat(3 - lives), 535, 32);
+      }
+      function hit() {
+        if (Date.now() < invulnerableUntil) return;
+        lives--; invulnerableUntil = Date.now() + 1200;
+        if (lives <= 0) {
+          running = false; best = Math.max(best, score); finalScore.textContent = 'Puntuación: ' + score; finalBest.textContent = 'Mejor puntuación: ' + best;
+          gameOverPanel.classList.add('show'); status.textContent = 'Michi necesita una pausa del café.'; startButton.textContent = '↻ Reiniciar';
+        }
+      }
+      function loop() {
+        if (!running) { render(); return; }
+        frame++;
+        if (frame % 68 === 0) { const type = Math.random() > .55 ? 'cafe' : 'energetica'; clouds.push({ x: -55, y: 55 + Math.random() * 195, size: type === 'cafe' ? 62 : 56, speed: 3.1 + Math.random() * 1.6, type, counted: false }); }
+        clouds.forEach(item => {
+          item.x += item.speed;
+          if (!item.counted && item.x > dragon.x + 65) { item.counted = true; score++; }
+          if (Math.abs(item.x - dragon.x) < (item.size + dragon.width) / 2 - 18 && Math.abs(item.y - dragon.y) < (item.size + dragon.height) / 2 - 20) hit();
+        });
+        clouds = clouds.filter(item => item.x < canvas.width + 80); render(); animation = requestAnimationFrame(loop);
+      }
+      function fly() { if (running) { dragon.y = Math.max(58, dragon.y - 24); } }
+      function descend() { if (running) { dragon.y = Math.min(248, dragon.y + 24); } }
+      function begin() { cancelAnimationFrame(animation); reset(); gameOverPanel.classList.remove('show'); running = true; status.textContent = '¡Esquiva el café y las energéticas!'; startButton.textContent = '↻ Reiniciar'; loop(); }
+      restartButton.addEventListener('click', begin);
+      canvas.addEventListener('pointerdown', event => { if (!running) return; const rect = canvas.getBoundingClientRect(); event.clientY - rect.top < rect.height / 2 ? fly() : descend(); });
+      [...michiFrames, coffeeImage, energyImage, statsImage].forEach(image => image.addEventListener('load', render));
+      reset(); render();
+    </script>
+    <script>
+      const starField = document.querySelector('.star-field');
+      for (let i = 0; i < 44; i++) {
+        const star = document.createElement('i'); star.className = 'star';
+        star.style.left = Math.random() * 100 + '%'; star.style.top = Math.random() * 100 + '%';
+        star.style.setProperty('--speed', (1.4 + Math.random() * 2.8) + 's'); starField.appendChild(star);
+      }
+      if (window.matchMedia('(pointer:fine)').matches) {
+        const customCursor = document.getElementById('michi-cursor'); let lastFire = 0;
+        window.addEventListener('pointermove', event => {
+          customCursor.style.left = event.clientX + 'px'; customCursor.style.top = event.clientY + 'px';
+          const now = performance.now(); if (now - lastFire < 38) return; lastFire = now;
+          const fire = document.createElement('i'); fire.className = 'cursor-fire'; fire.style.left = (event.clientX - 13) + 'px'; fire.style.top = (event.clientY + 18) + 'px';
+          fire.style.setProperty('--dx', (-16 - Math.random() * 25) + 'px'); fire.style.setProperty('--dy', (-7 + Math.random() * 20) + 'px'); document.body.appendChild(fire);
+          fire.addEventListener('animationend', () => fire.remove());
+        });
+      }
+    </script>
+    <script>
+      // El personaje se llama Michita: actualiza de forma coherente todo el texto visible.
+      const visibleText = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        acceptNode: node => ['SCRIPT', 'STYLE'].includes(node.parentElement?.tagName) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+      });
+      const textNodes = []; while (visibleText.nextNode()) textNodes.push(visibleText.currentNode);
+      textNodes.forEach(node => { node.nodeValue = node.nodeValue.replace(/\bMichi\b/g, 'Michita').replace(/\bmichi\b/g, 'michita'); });
+      document.title = document.title.replace(/Michi/g, 'Michita');
+    </script>
+    <script>
+      const music = document.getElementById('bg-music');
+      const playMusic = document.getElementById('music-play');
+      const muteMusic = document.getElementById('music-mute');
+      const volumeMusic = document.getElementById('music-volume');
+      const musicStatus = document.getElementById('music-status');
+      music.volume = Number(volumeMusic.value);
+      playMusic.addEventListener('click', async () => {
+        if (music.paused) { try { await music.play(); } catch (_) { return; } } else { music.pause(); }
+      });
+      music.addEventListener('play', () => { playMusic.textContent = 'Ⅱ'; musicStatus.textContent = 'Sonando ✦'; });
+      music.addEventListener('pause', () => { playMusic.textContent = '▶'; musicStatus.textContent = 'Pausa'; });
+      muteMusic.addEventListener('click', () => { music.muted = !music.muted; muteMusic.textContent = music.muted ? '🔇' : '🔊'; });
+      volumeMusic.addEventListener('input', () => { music.volume = Number(volumeMusic.value); music.muted = false; muteMusic.textContent = '🔊'; });
+      const welcome = document.getElementById('welcome');
+      document.getElementById('welcome-close').addEventListener('click', () => { welcome.classList.add('hide'); setTimeout(() => welcome.remove(), 250); });
+    </script>
+    <script>
+      const cardsView = document.getElementById('skills-cards');
+      const listView = document.getElementById('skills-list');
+      document.querySelectorAll('.skill-toggle').forEach(button => button.addEventListener('click', () => {
+        const listMode = button.dataset.skillsView === 'list'; cardsView.hidden = listMode; listView.hidden = !listMode;
+        document.querySelectorAll('.skill-toggle').forEach(item => item.classList.toggle('active', item === button));
+      }));
+      if (window.matchMedia('(pointer:fine)').matches) {
+        const runner = document.querySelector('.runner'); let escapeTimer;
+        window.addEventListener('pointermove', event => {
+          const rect = runner.getBoundingClientRect(); const x = rect.left + rect.width / 2; const y = rect.top + rect.height / 2;
+          if (Math.hypot(event.clientX - x, event.clientY - y) > 150) return;
+          const nextX = event.clientX < x ? Math.min(window.innerWidth - 90, x + 220) : Math.max(0, x - 220);
+          const nextY = Math.max(4, Math.min(90, window.innerHeight - y + 25));
+          runner.style.setProperty('--escape-x', nextX + 'px'); runner.style.setProperty('--escape-y', nextY + 'px'); runner.classList.add('escape');
+          clearTimeout(escapeTimer); escapeTimer = setTimeout(() => runner.classList.remove('escape'), 1100);
+        });
+      }
+    </script>
+  </body>
+</html>
